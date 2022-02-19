@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<productos>
+    <producto id="2344">
+        <descripcion>Pasta térmica 4g</descripcion>
+        <precio>6.0</precio>
+        <stock>36</stock>
+    </producto>
+    <producto id="1098">
+        <descripcion>Placa base Asus</descripcion>
+        <precio>150.0</precio>
+        <stock>14</stock>
+    </producto>
+    <producto id="7643">
+        <descripcion>Amd Ryzen 9</descripcion>
+        <precio>6.0</precio>
+        <stock>560</stock>
+    </producto>
+</productos>
