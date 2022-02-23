@@ -13,6 +13,9 @@ import java.util.logging.*;
 
 public abstract class UtilidadesXML {
 
+    private static final String TABULACION = "       ";
+    private static final int LONGITUD =30;
+
     public static Document generarDOMXML(List<Producto> listProducto){
         Document doc=null;
         try {
@@ -92,5 +95,47 @@ public abstract class UtilidadesXML {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void mostrarTabla(ArrayList<Producto> productos){
+        mostrarCabecera();
+        for (Producto p:productos) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(rellenarString(LONGITUD,String.valueOf(p.getId())));
+            sb.append(TABULACION);
+            sb.append(rellenarString(LONGITUD,p.getDescripcion()));
+            sb.append(TABULACION);
+            sb.append(rellenarString(LONGITUD,String.valueOf(p.getPrecio())));
+            sb.append(TABULACION);
+            sb.append(rellenarString(LONGITUD,String.valueOf(p.getStock())));
+            System.out.println(sb);
+        }
+    }
+    private static void mostrarCabecera(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(rellenarString(LONGITUD,"Id"));
+        sb.append(TABULACION);
+        sb.append(rellenarString(LONGITUD,"Descripcion"));
+        sb.append(TABULACION);
+        sb.append(rellenarString(LONGITUD,"Precio"));
+        sb.append(TABULACION);
+        sb.append(rellenarString(LONGITUD,"Stock"));
+        System.out.println(sb);
+    }
+    /**
+     * Cabecera: public static String rellenarString(int longitudDeseada,String cadena)
+     * descripcion: Este metodo se encarga de rellenar una string con espacios según la longitud pasada por parámetros.
+     * Precondiciones: Ninguna
+     * Postcondiciones: Devuelve la string con la longitud deseada.
+     *
+     * @param longitudDeseada String
+     * @param cadena String
+     * @return String cadenaConLongitudDeseada
+     */
+    public static String rellenarString(int longitudDeseada,String cadena){
+        while(cadena.length() < longitudDeseada){
+            cadena += " ";
+        }
+        return cadena;
     }
 }
